@@ -1,0 +1,11 @@
+docker buildx build --platform linux/amd64 -t gateway-service .
+
+docker tag gateway-service debmallick/gateway-service:latest
+
+docker login
+
+docker push debmallick/gateway-service:latest
+
+docker run -d -p 8000:8000 debmallick/gateway-service
+
+http://annoyed-whining-flower.ec2-13-126-129-210.ap-south-1.compute.amazonaws.com:8000/index.html

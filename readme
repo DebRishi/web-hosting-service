@@ -1,0 +1,25 @@
+Before building out the project, replace these string literals with there actual value:
+- <aws-region> : AWS IAM user region
+- <aws-access> : AWS IAM user access key
+- <aws-secret> : AWS IAM user secret key
+- <aws-bucket> : AWS S3 bucket name. It is used to store the static files
+- <aws-s3-base-url> : AWS S3 bucket base URL
+- <aws-cluster-arn> : AWS ECS cluster arn
+- <aws-task-definition-arn> : AWS ECS task definition arn
+- <aws-ecs-subnets> : AWS ECS subnets
+- <aws-ecs-security-groups> : AWS ECS security groups
+- <kafka-address> : Kafka address / IP
+- <mysql-url> : Mysql database [url:port/database]
+- <mysql-username> : Mysql database username
+- <mysql-password> : Mysql database password
+
+Use the docker-compose file to quickly deploy kakfa on local / remote server
+
+Commands for building a linux/amd64 Docker Image on an arm64 Machine
+- docker buildx build --platform linux/amd64 -t debmallick/gateway-service .
+- docker buildx build --platform linux/amd64 -t debmallick/hosting-service .
+- docker buildx build --platform linux/amd64 -t debmallick/web-application .
+
+Commands for testing builder service image:
+- docker run -e GIT_REPO_URL=https://github.com/DebRishi/test-vite-project.git -e PROJECT_ID=test-project -e DEPLOYMENT_ID=test-deployment builder-service-image
+- docker run -e GIT_REPO_URL=https://github.com/DebRishi/test-react-project.git -e PROJECT_ID=test-project -e DEPLOYMENT_ID=test-deployment builder-service-image
